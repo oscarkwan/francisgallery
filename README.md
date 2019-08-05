@@ -1,3 +1,3 @@
-# francisgallery
+# Francis Gallery
 
-# Shopify template
+## Shopify template
