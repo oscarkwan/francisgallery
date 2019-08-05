@@ -1,0 +1,27 @@
+{%- assign img_url = product.featured_image | img_url: 'master' -%}
+
+<a href="{{ product.url }}" class="product-card">
+  <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper js">
+    <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+      <img id="{{ img_id }}"
+            class="grid-view-item__image lazyload"
+            src="{{ product.featured_image | img_url: 'master' }}"
+            data-src="{{ img_url }}"
+            data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+            data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="">
+    </div>
+  </div>
+   <div class="caption">
+      <span class="caption-artist">
+        {% for collection in product.collections %}
+          {% if collection.title != 'Featured Collection' and collection.title != 'All Products' %}
+            <div class="caption-artist__title">{{ collection.title | strip | split: ':' | first }}</div>
+            {% if product.price != 0 %}<span class="caption-artist__price">{{ product.price | money }}</span>{% endif %}
+          {% endif %}
+        {% endfor %}
+      </span>
+   </div><!-- end of .caption -->
+   <span class="product-card__title">{{ product.title }}</span>
+</a>

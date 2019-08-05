@@ -1,0 +1,13 @@
+{%- assign img_url = collection_artist.image | img_url: 'x200' -%}
+<div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper js">
+  <div style="padding-top: 67%;">
+    <img id="{{ img_id }}"
+          class="grid-view-item__image lazyload"
+          src="{{ collection_artist.image | img_url: '300x300' }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="{{ collection_artist.image.aspect_ratio }}"
+          data-sizes="auto"
+          alt="">
+  </div>
+</div>

@@ -1,0 +1,290 @@
+<div>
+  <div id="Collection">
+    <div class="search-by-artist">
+      <div class="search-stuff">
+        <a id="browser-by-artist" style="margin-bottom: 8px;">
+          Browse by Artist
+          <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/Artist-Arrow.svg?2103" />
+        </a>
+        <a id="browser-by-category">
+          Browse by Category
+          <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/Artist-Arrow.svg?2103" />
+        </a>
+      </div>
+      {% if collection.current_type %}
+      <div class="types-title">
+        <span>Shop</span>
+        <h2>{{ collection.current_type }}</h2>
+      </div>
+      {% endif %}
+    </div>
+    {% assign count = 0 %}
+
+    {% paginate collection.products by 16 %}
+    <div class="products-list">
+      {% for product in collection.products %}
+        {% assign count = count | plus: 1 %}
+        {% capture modulo_4 %}{{ forloop.index | modulo:4 }}{% endcapture %}
+        {% include 'product-card-grid' %}
+
+        {% if count == 8 %}
+          {% for block in section.blocks limit: 1 %}
+            {% case block.type %}
+              {% when 'text' %}
+                {% include 'collection-text-quote' %}
+            {% endcase %}
+          {% endfor %}
+        {% endif %}
+
+        {% if modulo_4 == '0' %}
+          </div>
+          <div class="products-list">
+        {% endif %}
+      {% endfor %}
+    </div>
+      <div class="pagination">
+        <ul class="list--inline pagination">
+          {% unless paginate.previous.is_link %}
+            <li aria-hidden="true">
+              <button class="btn btn--tertiary btn--narrow" style="color: white; border: 0;" disabled>
+                {% include 'icon-arrow-left' %}
+                <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+              </button>
+            </li>
+            {% else %}
+            <li>
+              <a href="{{ paginate.previous.url }}" class="btn btn--tertiary btn--narrow" style="color: white; border: 0;">
+                {% include 'icon-arrow-left' %}
+                <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+              </a>
+            </li>
+          {% endunless %}
+          <li class="pagination__text">
+            {{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}
+          </li>
+          {% unless paginate.next.is_link %}
+            <li aria-hidden="true">
+              <button class="btn btn--tertiary btn--narrow" style="color: white; border: 0;" disabled>
+                {% include 'icon-arrow-right' %}
+                <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+              </button>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ paginate.next.url }}" class="btn btn--tertiary btn--narrow" style="color: white; border: 0;">
+                {% include 'icon-arrow-right' %}
+                <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+              </a>
+            </li>
+          {% endunless %}
+        </ul>
+    </div>
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Collection pages",
+      "de": "Kategorie-Seiten",
+      "fr": "Pages de collections",
+      "it": "Pagine delle collezioni",
+      "ja": "コレクションページ",
+      "es": "Páginas de colección",
+      "pt-BR": "Páginas de coleções"
+    },
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "label": {
+          "en": "Layout",
+          "de": "Layout",
+          "fr": "Mise en page",
+          "it": "Layout",
+          "ja": "レイアウト",
+          "es": "Diseño",
+          "pt-BR": "Layout"
+        },
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": {
+              "en": "Grid",
+              "de": "Raster",
+              "fr": "Grille",
+              "it": "Griglia",
+              "ja": "グリッド",
+              "es": "Cuadrícula",
+              "pt-BR": "Grade"
+            }
+          },
+          {
+            "value": "list",
+            "label": {
+              "en": "List",
+              "de": "Liste",
+              "fr": "Liste",
+              "it": "Elenco",
+              "ja": "リスト",
+              "es": "Lista",
+              "pt-BR": "Lista"
+            }
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": {
+          "en": "Products per row (grid only)",
+          "de": "Produkte per Reihe (nur Raster)",
+          "fr": "Produits par rangée (grille uniquement)",
+          "it": "Prodotti per riga (solo griglia)",
+          "ja": "行あたりの商品数（グリッドのみ）",
+          "es": "Productos por fila (solo cuadrícula)",
+          "pt-BR": "Produtos por linha (somente grade)"
+        },
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1
+      },
+      {
+        "type": "range",
+        "id": "rows",
+        "label": {
+          "en": "Rows per page (grid only)",
+          "de": "Reihen per Seite (nur Raster)",
+          "fr": "Rangées par page (grille uniquement)",
+          "it": "Righe per pagina (solo griglia)",
+          "ja": "ページあたりの行数（グリッドのみ）",
+          "es": "Filas por página (solo cuadrícula)",
+          "pt-BR": "Linhas por página (somente grade)"
+        },
+        "default": 2,
+        "min": 2,
+        "max": 8,
+        "step": 1
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_image",
+        "label": {
+          "en": "Show collection image",
+          "de": "Kategorie-Foto anzeigen",
+          "fr": "Afficher l'image de la collection",
+          "it": "Mostra immagine collezione",
+          "ja": "コレクションの画像を表示する",
+          "es": "Mostrar imagen de la colección",
+          "pt-BR": "Exibir imagem da coleção"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": {
+          "en": "Show product vendors",
+          "de": "Produkt-Lieferanten anzeigen",
+          "fr": "Afficher les vendeurs",
+          "it": "Mostra fornitori prodotto",
+          "ja": "商品の販売元を表示する",
+          "es": "Mostrar proveedores del producto",
+          "pt-BR": "Exibir fornecedores do produto"
+        },
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "sort_enable",
+        "label": {
+          "en": "Enable sorting",
+          "de": "Sortieren erlauben",
+          "fr": "Activer le tri",
+          "it": "Permetti di ordinare",
+          "ja": "並べ替えを有効にする",
+          "es": "Habilitar la función ordenar",
+          "pt-BR": "Ativar classificação"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_enable",
+        "label": {
+          "en": "Enable tag filtering",
+          "de": "Tag-Filtern erlauben",
+          "fr": "Activer le filtrage par balises",
+          "it": "Attiva filtro tag",
+          "ja": "タグでの絞り込みを有効にする",
+          "es": "Habilitar filtro de etiquetas",
+          "pt-BR": "Ativar filtragem de tags"
+        },
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": {
+          "en": "Text",
+          "de": "Text",
+          "fr": "Texte",
+          "it": "Testo",
+          "ja": "テキスト",
+          "es": "Texto",
+          "pt-BR": "Texto"
+        },
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": {
+              "en": "Heading",
+              "de": "Titel",
+              "fr": "En-tête",
+              "it": "Heading",
+              "ja": "見出し",
+              "es": "Título",
+              "pt-BR": "Título"
+            },
+            "default": {
+              "en": "Talk about your brand",
+              "de": "Erzählen Sie von Ihrer Marke",
+              "fr": "Parlez de votre marque",
+              "it": "Parla del tuo brand",
+              "ja": "あなたのブランドについて語る",
+              "es": "Habla de tu marca",
+              "pt-BR": "Fale sobre a sua marca"
+            }
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": {
+              "en": "Sub Heading",
+              "de": "Titel",
+              "fr": "En-tête",
+              "it": "Heading",
+              "ja": "見出し",
+              "es": "Título",
+              "pt-BR": "Título"
+            },
+            "default": {
+              "en": "Name",
+              "de": "Erzählen Sie von Ihrer Marke",
+              "fr": "Parlez de votre marque",
+              "it": "Parla del tuo brand",
+              "ja": "あなたのブランドについて語る",
+              "es": "Habla de tu marca",
+              "pt-BR": "Fale sobre a sua marca"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

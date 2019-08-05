@@ -1,0 +1,78 @@
+<!-- <div id="accordion">
+  {% for block in section.blocks %}
+    <div class="accordion-row">
+      <span class="accordion-row__date">{{block.settings.date}}<span>
+      <p class="accordion-row__title">{{block.settings.article_name}}</p>
+      <div class="accordion-content default">
+       {{block.settings.article_content}}
+      </div>
+      <span class="accordion-toggle">Read details +</span>
+    </div>
+  {% endfor %}
+</div> -->
+
+{% schema %}
+  {
+    "name": {
+      "en": "Homepage Article",
+      "de": "Galerie",
+      "fr": "Galerie",
+      "it": "Galleria",
+      "ja": "ギャラリー",
+      "es": "Galería",
+      "pt-BR": "Galeria"
+    },
+    "blocks": [
+      {
+        "type": "article",
+        "name": {
+          "en": "Article"
+        },
+        "settings": [
+          {
+            "type": "text",
+            "id": "date",
+            "label": {
+              "en": "Date"
+            }
+          },
+          {
+            "type": "text",
+            "id": "article_name",
+            "label": {
+              "en": "Article Name"
+            }
+          },
+          {
+            "type": "richtext",
+            "id": "article_content",
+            "label": {
+              "en": "Article Content"
+            }
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Article Section"
+        },
+        "category": {
+          "en": "Homepage"
+        },
+        "blocks": [
+          {
+            "type": "article"
+          },
+          {
+            "type": "article"
+          },
+          {
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,99 @@
+{%- assign img_url = section.settings.artist_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{%- assign collection = collections[section.settings.artist_collection] -%}
+{{ section.settings.artist_collection }}
+<div class="page-artist-content">
+  <div class="page-artist-left">
+    <figure>
+      <img id="{{ img_id }}"
+           class="lazyload js"
+           src="{{ section.settings.artist_image | img_url: 'x300' }}"
+           alt="{{ section.settings.artist_image.alt | escape }}">
+      <figcaption>{{ section.settings.artist_image_caption}}</figaption>
+    </figure>
+  </div>
+  <div class="page-artist-right">
+    <img id="{{ img_id }}"
+         class="lazyload js"
+         src="{{ section.settings.artist_header_image | img_url: 'master' }}"
+         alt="{{ section.settings.artist_header_image.alt | escape }}">
+    <h3>{{ collection.title | split: ':' | last }}</h3>
+    <h2>{{ collection.title | split: ':' | first }}</h2>
+    <div>
+      {{ collection.description }}
+    </div>
+    <div style="height: 50px">
+    </div>
+    {% for block in section.blocks %}
+      <div class="artist-two-images">
+        <div class="left-image">
+          <img id="{{ img_id }}"
+               class="lazyload js"
+               src="{{ block.settings.image_left.src | img_url: 'master' }}"
+               alt="{{ block.settings.image_left.alt | escape }}">
+        </div>
+        <div class="right-image">
+          <img id="{{ img_id }}"
+              class="lazyload js"
+              src="{{ block.settings.image_right.src | img_url: 'master' }}"
+              alt="{{ block.settings.image_right.alt | escape }}">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="shop-artwork" id="shop-artwork">
+  <a href="{{ collection.url }}"><h2>Shop artwork</h2></a>
+  {% for product in collection.products limit:4 %}
+    {% include 'homepage-collection-grid' %}
+  {% endfor %}
+</div>
+{% schema %}
+  {
+    "name": "Page Artist Template",
+    "settings": [
+      {
+        "id": "artist_collection",
+        "type": "collection",
+        "label": "Collection Artist"
+      },
+      {
+        "id": "artist_image",
+        "type": "image_picker",
+        "label": "Artist Image"
+      },
+      {
+        "id": "artist_image_caption",
+        "type": "text",
+        "label": "Artist Image Caption"
+      },
+      {
+        "id": "artist_header_image",
+        "type": "image_picker",
+        "label": "Artist Header Image"
+      },
+      {
+        "id": "artist_description",
+        "type": "richtext",
+        "label": "Artist Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image_picker",
+        "name": "Two half Images",
+        "settings": [
+          {
+            "label": "Image Left",
+            "id": "image_left",
+            "type": "image_picker"
+          },
+          {
+            "label": "Image Right",
+            "id": "image_right",
+            "type": "image_picker"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

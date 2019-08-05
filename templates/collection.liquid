@@ -1,0 +1,33 @@
+{% comment %}
+  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+{% endcomment %}
+{% if collection.handle == 'all' %}
+  <div id="Collection">
+    <div class="search-by-artist comon-bro">
+      <a id="browser-by-artist">
+        Browse by Artist
+        <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/Artist-Arrow.svg?2103" />
+      </a>
+    </div>
+    <div class="collection-categories">
+      <a href="/collections/types?q=Original%20Works" class="collection-category">
+        <h2>Original Works</h2>
+        <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/originalworks-tn-1.jpg?7858" />
+      </a>
+      <a href="/collections/types?q=Limited%20Editions" class="collection-category">
+        <h2>Limited Editions</h2>
+        <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/Spencer-Fung-1.jpg?5588" />
+      </a>
+      <a href="/collections/types?q=Furniture" class="collection-category">
+        <h2>Furniture</h2>
+        <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/Rory_240419_003_2b273c69-b9ef-40d7-93e7-8a9db6e934e1.jpg?5602" />
+      </a>
+      <a href="/collections/types?q=Antiques" class="collection-category">
+        <h2>Antiques</h2>
+        <img src="https://cdn.shopify.com/s/files/1/0018/1108/7472/files/Antique.jpg?5588" />
+      </a>
+    </div>
+  </div>
+{% else %}
+  {% section 'collection-template' %}
+{% endif %}

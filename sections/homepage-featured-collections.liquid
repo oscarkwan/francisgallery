@@ -1,0 +1,77 @@
+{%- assign collection = collections[section.settings.collection] -%}
+
+<div class="homepage-featured-collection" id="homepage-featured-collection">
+  <div class="homepage-featured-collection__header">
+    <span class="homepage-featured-collection__title left">{{section.settings.title}}</span>
+  </div>
+  <div class="homepage-featured-collection__left">
+    <div class="homepage-collection-grid" id="text">
+      {% for product in collection.products limit: 8 %}
+        {% include 'homepage-collection-grid' %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Featured Collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "en": "Heading"
+        },
+        "default": {
+          "en": "Featured collection"
+        }
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": {
+          "en": "Collection"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": {
+          "en": "Collection",
+          "de": "Kategorie",
+          "fr": "Collection",
+          "it": "Collezione",
+          "ja": "コレクション",
+          "es": "Colección",
+          "pt-BR": "Coleção"
+        },
+        "settings": [
+          {
+            "label": {
+              "en": "Collection",
+              "de": "Kategorie",
+              "fr": "Collection",
+              "it": "Collezione",
+              "ja": "コレクション",
+              "es": "Colección",
+              "pt-BR": "Coleção"
+            },
+            "id": "collection_artist",
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Homepage Featured collection"
+        },
+        "category": {
+          "en": "Homepage"
+        }
+      }
+    ]
+  }
+{% endschema %}

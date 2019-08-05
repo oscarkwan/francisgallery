@@ -1,0 +1,195 @@
+{% comment %} <div class="shop-artwork" id="shop-artwork">
+  <h2>Shop artwork</h2>
+  {% for product in collection.products limit:4 %}
+    {% include 'homepage-collection-grid' %}
+  {% endfor %}
+</div> {% endcomment %}
+{% for collection in product.collections %}
+  {% if collection.handle == 'all' or collection.handle == 'featured-collection' %}
+  {% else %}
+    {% assign yolo = collection.handle %}
+  {% endif %}
+{% endfor %}
+
+{% assign isOnlyProduct = false %}
+{% assign current_product_2 = product %}
+
+{% if collections[yolo].products.size == 1 %}
+  {% for product in collections[yolo].products %}
+  {% if product.handle == current_product_2.handle %}
+    {% assign isOnlyProduct = true %}
+  {% else %}
+    {% assign isOnlyProduct = false %}
+  {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if collections[yolo].products.size != 0 %}
+  {% if isOnlyProduct == false %}
+  <div id="shop-artwork" class="shop-artwork " itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+
+  {% comment %}
+    Number of related items per row,
+    and number of rows.
+  {% endcomment %}
+
+  {% assign number_of_related_products_per_row = section.settings.related_grid_num %}
+  {% assign number_of_rows = section.settings.related_grid_row %}
+
+  {% comment %}
+    Heading.
+    Leave blank if you don't need one.
+  {% endcomment %}
+
+  {% assign heading = section.settings.related_title %}
+
+  {% comment %}
+    Set either or both to true, if you want
+    to limit yourself to items with same vendor, and/or type.
+  {% endcomment %}
+
+  {% assign same_vendor = false %}
+  {% assign same_type = false %}
+
+  {% comment %}
+    Collections to ignore.
+    Never pick related items from those.
+  {% endcomment %}
+
+  {% assign exclusions = 'frontpage,all' | split: ',' %}
+
+  {% comment %}
+    If we have a relevant collection.
+  {% endcomment %}
+
+
+    {% assign counter = 0 %}
+    {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+    {% assign current_product = product %}
+
+    {% case number_of_related_products_per_row %}
+      {% when '1' %}
+        {% assign grid_item_width = '' %}
+    {%- assign max_height = 700 -%}
+      {% when '2' %}
+        {% assign grid_item_width = 'small--one-half medium-up--one-half' %}
+    	  {%- assign max_height = 530 -%}
+      {% when '3' %}
+        {% assign grid_item_width = 'small--one-half medium-up--one-third' %}
+        {%- assign max_height = 345 -%}
+      {% when '4' %}
+        {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
+    {%- assign max_height = 250 -%}
+      {% when '5' %}
+        {% assign grid_item_width = 'small--one-half medium-up--one-fifth' %}
+    {%- assign max_height = 195 -%}
+      {% when '6' %}
+        {% assign grid_item_width = 'small--one-half medium-up--one-sixth' %}
+    {%- assign max_height = 195 -%}
+      {% else %}
+        {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
+    {%- assign max_height = 195 -%}
+    {% endcase %}
+
+
+    {%- assign img_url = section.settings.artist_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+
+    <h2>Shop related works</h2>
+    <script>var myVar2 = {{collections[yolo].products.size}}</script>
+    <script>var myVar = {{collections[yolo].products.size | minus: 2}}</script>
+    {% if collections[yolo].products.size <= 4 %}
+      {% assign index = 0 %}
+    {% else %}
+      <script>
+      $(document).ready(function($) {
+        function randomIntFromInterval(min,max) {
+          return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        var arr = []
+        while(arr.length < myVar2 - 5){
+            var r = randomIntFromInterval(0, myVar);
+            if(arr.indexOf(r) === -1) arr.push(r);
+        }
+        console.log(arr);
+
+        $('.reveal').each( (i) => {
+          $('.reveal').eq(arr[i]).addClass('disappearMe');
+        });
+      });
+      </script>
+    {% endif %}
+
+    {% for product in collections[yolo].products offset: index %}
+      {% unless product.handle == current_product.handle %}
+        {% include 'homepage-collection-grid', max_height: max_height %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Related products",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_related_products",
+      "label": "Show related products",
+      "default": false
+    },
+    {
+      "id": "related_title",
+      "type": "text",
+      "label": "Section title",
+      "default": "Other fine products"
+    },
+    {
+      "type": "select",
+      "id": "related_grid_num",
+      "label": "Products per row (Desktop)",
+      "default": "4",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "related_grid_row",
+      "label": "Number of rows (Desktop)",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

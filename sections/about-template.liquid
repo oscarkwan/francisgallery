@@ -1,0 +1,112 @@
+<div class="page-artist-content padding-bottom-0 about-lah">
+    <div class="page-artist-left">
+      <p>{{section.settings.about_text}}</p>
+      <div class="page-about-left">{{section.settings.contact_text}}</div>
+      {% comment %} <div class="page-about-left">{{section.settings.contact_text}}</div> {% endcomment %}
+      {% comment %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d613.9780540147733!2d-2.3609504315523897!3d51.38570047254137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718113462ad24b%3A0x2aa11873dcc2cbaf!2s3+Fountain+Buildings%2C+Bath+BA1+5DU%2C+UK!5e0!3m2!1sen!2sca!4v1539675094364" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe> {% endcomment %}
+    </div>
+    <div class="page-artist-right">
+        <img id="{{ img_id }}"
+            class="lazyload js"
+            src="{{ section.settings.header_image | img_url: 'master' }}"
+            alt="{{ section.settings.header_image.alt | escape }}">
+        <p style="font-style: italic; margin-top: 45px;">{{section.settings.about_text_italic}}</p>
+        {% for block in section.blocks %}
+            {% if block.type == 'two_half' %}
+            <div class="artist-two-images">
+                <div class="left-image">
+                <img id="{{ img_id }}"
+                    class="lazyload js"
+                    src="{{ block.settings.image_left.src | img_url: 'master' }}"
+                    alt="{{ block.settings.image_left.alt | escape }}">
+                </div>
+                <div class="right-image">
+                <img id="{{ img_id }}"
+                    class="lazyload js"
+                    src="{{ block.settings.image_right.src | img_url: 'master' }}"
+                    alt="{{ block.settings.image_right.alt | escape }}">
+                </div>
+            </div>
+            {% endif %}
+            {% if block.type == 'full_width' %}
+                <img id="{{ img_id }}"
+                class="lazyload js"
+                src="{{ section.settings.header_image | img_url: 'master' }}"
+                alt="{{ section.settings.header_image.alt | escape }}">
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name": {
+      "en": "About Page",
+      "de": "Galerie",
+      "fr": "Galerie",
+      "it": "Galleria",
+      "ja": "ギャラリー",
+      "es": "Galería",
+      "pt-BR": "Galeria"
+    },
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "header_image",
+            "label": {
+                "en": "header_image"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "contact_text",
+            "label": {
+                "en": "Contact text"
+            }
+        },
+        {
+            "type": "textarea",
+            "id": "about_text_italic",
+            "label": {
+                "en": "About Text Italic"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "about_text",
+            "label": {
+                "en": "About Text"
+            }
+        }
+    ],
+    "blocks": [
+      {
+        "type": "two_half",
+        "name": "Two half Images",
+        "settings": [
+          {
+            "label": "Image Left",
+            "id": "image_left",
+            "type": "image_picker"
+          },
+          {
+            "label": "Image Right",
+            "id": "image_right",
+            "type": "image_picker"
+          }
+        ]
+      },
+      {
+        "type": "full_width",
+        "name": "Full width image",
+        "settings": [
+          {
+            "label": "Full Image",
+            "id": "full_image",
+            "type": "image_picker"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

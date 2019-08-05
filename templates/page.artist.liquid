@@ -1,0 +1,24 @@
+{{ page.content }}
+<div class="shop-artwork" id="shop-artwork">
+  <a class="shop-artwork_link" href="/collections/{{ page.handle }}"><h2>Shop artwork</h2></a>
+  {%- assign collectionName = page.title | strip | downcase | replace: ' ', '-' -%}
+  {%- assign collection = collections[collectionName] -%}
+
+  {% if collection.products.size <= 4 %}
+    {% assign index = 0 %}
+  {% else %}
+    {% assign index = 'now' | date: '%S' %}
+    {% assign index = index | times: collection.products.size %}
+    {% assign index = index | divided_by: 60 %}
+  {% endif %}
+
+  {% for product in collection.products limit: 4 %}
+    {% unless product.handle == current_product.handle %}
+      {% include 'homepage-collection-grid', max_height: max_height %}
+        {% assign counter = counter | plus: 1 %}
+        {% if counter == break_at %}
+        {% break %}
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+</div>

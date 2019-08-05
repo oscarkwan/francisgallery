@@ -1,0 +1,214 @@
+{%- assign social_icons = false -%}
+
+{% if
+  settings.social_twitter_link != blank
+  or settings.social_facebook_link != blank
+  or settings.social_pinterest_link != blank
+  or settings.social_instagram_link != blank
+  or settings.social_tumblr_link != blank
+  or settings.social_snapchat_link != blank
+  or settings.social_youtube_link != blank
+  or settings.social_vimeo_link != blank
+  or template.name == 'article'
+  or template.name == 'blog'
+%}
+  {%- assign social_icons = true -%}
+{% endif %}
+
+<footer class="site-footer {% if template.name =='index' %} footer-sticky {% endif %}" role="contentinfo">
+  {% if template.name == 'index' %}
+    <div class="footer-bg" style="background-image: url('{{ section.settings.footer_header_img | img_url: 'master' }}')">
+    </div>
+  {% endif %}
+  <div class="home-footer">
+    {% if linklists[section.settings.footer_linklist].links.size > 0 %}
+      <ul class="site-footer__linklist{% unless section.settings.footer_newsletter_enable %} site-footer__linklist--center{% endunless %}">
+        {% for link in linklists[section.settings.footer_linklist].links %}
+          <li class="site-footer__linklist-item">
+            <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}{% unless forloop.last %}<span class="slash">/</span>{% endunless %}</a>
+          </li>
+        {% endfor %}
+        <li class="site-footer__linklist-item">
+          <a href="https://www.instagram.com/francisgallery/"><span class="slash">/</span>Instagram<span class="slash">/</span></a>
+        </li>
+      </ul>
+      <ul class="site-footer__linklist social">
+        <li class="site-footer__linklist-item">
+          <a>Newsletter</a>
+        </li>
+      </ul>
+      <div style="opacity: 1 !important; padding-bottom: 20px;">
+        <span class="copyright-text">© 2019 Francis Gallery. <a href="http://studiofaculty.com">Site by Faculty</a></span>
+      </div>
+      <div class="dang" style="margin-left: auto; opacity: 1 !important; padding-bottom: 20px;">
+        <form class="mailchimp-form" action="https://francisgallery.us19.list-manage.com/subscribe/post?u=cdd4ac1b7d252c169f87a57f1&amp;id=153c340b46" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <input type="email" placeholder="Your email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdd4ac1b7d252c169f87a57f1_153c340b46" tabindex="-1" value=""></div>
+          <div class="clear" style="opacity: 1 !important;">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button">
+          </div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>
+        </form>
+        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+      </div>
+    {% endif %}
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Footer",
+      "de": "Fußzeile",
+      "fr": "Pied de page",
+      "it": "Footer",
+      "ja": "フッター",
+      "es": "Pie de página",
+      "pt-BR": "Rodapé"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Menu",
+          "de": "Menü",
+          "fr": "Menu",
+          "it": "Menu",
+          "ja": "メニュー",
+          "es": "Menú",
+          "pt-BR": "Menu"
+        }
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_header_img",
+        "label": {
+          "en": "Footer Header Image"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": {
+          "en": "Primary menu",
+          "de": "Hauptmenü",
+          "fr": "Menu principal",
+          "it": "Menu principale",
+          "ja": "プライマリメニュー",
+          "es": "Menú primario",
+          "pt-BR": "Menu principal"
+        },
+        "default": "footer",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_two",
+        "label": {
+          "en": "Additional menu",
+          "de": "Extra Menü",
+          "fr": "Menu supplémentaire",
+          "it": "Menu aggiuntivo",
+          "ja": "追加メニュー",
+          "es": "Menú adicional",
+          "pt-BR": "Menu adicional"
+        },
+        "default": "main-menu",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Newsletter",
+          "de": "Newsletter",
+          "fr": "Newsletter",
+          "it": "Newsletter",
+          "ja": "ニュースレター",
+          "es": "Boletín",
+          "pt-BR": "Newsletter"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": {
+          "en": "Show newsletter signup",
+          "de": "Newsletter Signup anzeigen",
+          "fr": "Afficher l'inscription à la newsletter",
+          "it": "Mostra iscrizione alla Newsletter",
+          "ja": "ニュースレターのサインアップを表示する",
+          "es": "Mostrar suscripción al boletín",
+          "pt-BR": "Exibir assinatura da newsletter"
+        },
+        "default": false
+      },
+      {
+        "type": "richtext",
+        "id": "footer_newsletter_subheading",
+        "label": {
+          "en": "Subheading",
+          "de": "Unter-Überschrift",
+          "fr": "Sous-titre",
+          "it": "Sottotitolo",
+          "ja": "小見出し",
+          "es": "Subtítulo",
+          "pt-BR": "Subtítulo"
+        },
+        "default": {
+          "en": "<p>A short sentence describing what someone will receive by subscribing</p>",
+          "de": "<p>Eine kurze Beschreibung zum Inhalt des Newsletters</p>",
+          "fr": "<p>Petite phrase qui décrit ce qu'on reçoit en s'inscrivant</p>",
+          "it": "<p>Una breve frase che descrive ciò che qualcuno riceverà effettuando l'iscrizione</p>",
+          "ja": "<p>購読している人が何を受け取ることができるかについて説明する短い文章</p>",
+          "es": "<p>Una frase corta que describe lo que las personas recibirán al suscribirse</p>",
+          "pt-BR": "<p>Uma frase curta que descreve o que alguém receberá ao assinar</p>"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Payment methods",
+          "de": "Zahlungsarten",
+          "fr": "Moyens de paiement",
+          "it": "Metodi di pagamento",
+          "ja": "お支払い方法",
+          "es": "Métodos de pago",
+          "pt-BR": "Formas de pagamento"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": {
+          "en": "Show payment icons",
+          "de": "Zahlungs-Buttons anzeigen",
+          "fr": "Afficher les icônes de paiement",
+          "it": "Mostra le icone di pagamento",
+          "ja": "支払いアイコンを表示する",
+          "es": "Mostrar iconos de pago",
+          "pt-BR": "Exibir ícones de pagamento"
+        },
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,688 @@
+{
+  "current": {
+    "color_text": "#3d4246",
+    "color_body_text": "#69727b",
+    "color_sale_text": "#557b97",
+    "color_borders": "#e8e9eb",
+    "color_button": "#557b97",
+    "color_button_text": "#fff",
+    "color_small_button_text_border": "#3d4246",
+    "color_text_field": "#fff",
+    "color_text_field_text": "#000",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 40,
+    "color_body_bg": "#fff",
+    "type_header_font": "work_sans_n6",
+    "type_header_base_size": 26,
+    "type_base_font": "work_sans_n4",
+    "type_base_size": 16,
+    "type_bold_product_titles": false,
+    "share_image": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#242621",
+    "checkout_input_background_color_mode": "transparent",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#d5d5d5",
+    "checkout_heading_font": "Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman'",
+    "checkout_body_font": "Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman'",
+    "checkout_accent_color": "#b8b8b8",
+    "checkout_button_color": "#ffffff",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "header_right_image": "shopify:\/\/shop_images\/Francis-Gallery-Home-6.jpg",
+          "logo": "",
+          "logo_max_width": 100,
+          "main_linklist": "main-menu",
+          "message": false,
+          "home_page_only": true,
+          "message_text": "Announce something here",
+          "message_link": "",
+          "color_bg": "#7796a8",
+          "color_text": "#fff"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "disabled": true,
+        "settings": {
+          "image": "",
+          "alignment": "center",
+          "title": "Image with text overlay",
+          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.<\/p>",
+          "hero_size": "medium",
+          "text_size": "large",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "disabled": true,
+        "blocks": {
+          "slideshow-0": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "top",
+              "title": "Image slide",
+              "subheading": "Tell your brand's story through video and images",
+              "link": ""
+            }
+          },
+          "slideshow-1": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "top",
+              "title": "Image slide",
+              "subheading": "Tell your brand's story through video and images",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0",
+          "slideshow-1"
+        ],
+        "settings": {
+          "autoplay": true,
+          "autoplay_speed": 7,
+          "slideshow_height": "small",
+          "text_size": "medium"
+        }
+      },
+      "featured-collections": {
+        "type": "collection",
+        "disabled": true,
+        "settings": {
+          "title": "Featured collection",
+          "collection": "",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "",
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_header_img": "shopify:\/\/shop_images\/Francis-homepage-banner-5.jpg",
+          "footer_linklist": "footer",
+          "footer_linklist_two": "",
+          "footer_newsletter_enable": false,
+          "footer_newsletter_subheading": "<p>A short sentence describing what someone will receive by subscribing<\/p>",
+          "show_payment_icons": false
+        }
+      },
+      "1533867955296": {
+        "type": "homepage-article",
+        "blocks": {
+          "1533867955296-1": {
+            "type": "article",
+            "settings": {
+              "date": "14\/11\/2018",
+              "article_name": "Francis Gallery has launched an online platform, with a focus on limited edition artistic reproductions of original fine art.",
+              "article_content": "<p>The online gallery&nbsp;includes a photographic series by Matthew Johnson; Chinese ink and watercolour paintings by Spencer Fung; ink line drawings by Romy Northover; sculpture by Mari-Ruth Oda and Korean ceramics by Kim Sang-In. For more information, please see our shop page.<\/p>"
+            }
+          },
+          "1533867955296-0": {
+            "type": "article",
+            "settings": {
+              "date": "26\/10\/2018",
+              "article_name": "Francis Gallery will be launching a permanent site in central Bath, England, in Spring 2019.",
+              "article_content": "<p>The space is within the expansive ground floor of a Georgian town house, with original floor boards throughout, and filled with natural light.<\/p>"
+            }
+          },
+          "1533867955296-2": {
+            "type": "article",
+            "settings": {
+              "date": "1\/10\/2018",
+              "article_name": "Francis Gallery held its inaugural show from 22nd – 30th September 2018 at 99 Crawford Street in Marylebone, London.",
+              "article_content": "<p>The show exhibited works by artists Spencer Fung, Mari-Ruth Oda, and Kim Sang-In. Bespoke furnishings and fittings were created for the show by Fred Rigby, in collaboration with the gallery.<\/p>\n<p><\/p>\n<p>The sculptures &ndash; soft, fluid forms in bone and ivory tones &ndash; were by Mari-Ruth Oda, a Japanese-born artist based in Manchester. A large, open circle of jesmonite stood at the centre of the space, with smaller pieces populating plinths and window sills.<\/p>\n<p><\/p>\n<p>On the walls, a series of works on rice paper in Chinese black ink responded to the mountain peaks of Hong Kong, and another to the rock formations of the Catalonian Pyrenees. Created by Spencer Fung, a Hong-Kong-born artist, these free and instinctive paintings were inspired by his profound affinity for natural landscapes.<\/p>\n<p><\/p>\n<p>A collection of simple white ceramics, with a pale blue lustre, including moon jars, octagonal ceramic vessels, teacups and raised stands, was created by <em>Haeinyo<\/em>, the artistic moniker of Kim Sang-In. Made from local Korean clay in his studio outside Seoul, and inspired by traditional shapes from the Joseon Dynasty, these pieces reflect the aesthetic heritage that informs Francis gallery&rsquo;s setting.&nbsp;<\/p>\n<p><\/p>\n<p>An ash table and bench set with walnut butterfly joints was custom built by Fred Rigby, and tea was served here throughout the show. Called <em>Hyunmi-Cha<\/em>, the roasted brown rice tea from Tea Collective was served in <em>Haeinyo&rsquo;s<\/em> teacups on walnut coasters, made especially for the gallery by Richard Finley. On 29th September, Tea Collective hosted a special tea presentation for Francis Gallery&rsquo;s guests.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1533867955296-1",
+          "1533867955296-0",
+          "1533867955296-2"
+        ],
+        "settings": {}
+      },
+      "1533874592620": {
+        "type": "homepage-featured-collections",
+        "blocks": {
+          "1533938973718": {
+            "type": "collection",
+            "settings": {
+              "collection_artist": "mari-ruth-oda"
+            }
+          },
+          "1533938978586": {
+            "type": "collection",
+            "settings": {
+              "collection_artist": ""
+            }
+          },
+          "1533952504780": {
+            "type": "collection",
+            "settings": {
+              "collection_artist": ""
+            }
+          },
+          "1533952511206": {
+            "type": "collection",
+            "settings": {
+              "collection_artist": ""
+            }
+          },
+          "1534315839498": {
+            "type": "collection",
+            "settings": {
+              "collection_artist": ""
+            }
+          }
+        },
+        "block_order": [
+          "1533938973718",
+          "1533938978586",
+          "1533952504780",
+          "1533952511206",
+          "1534315839498"
+        ],
+        "settings": {
+          "title": "Featured work",
+          "collection": "featured-collection"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "blocks": {
+          "1534289673716": {
+            "type": "text",
+            "settings": {
+              "title": "“I wish to provide people with an empty vessel - both literally and figuratively - into which they can pour in their emotions, thoughts, and purpose.”",
+              "subtitle": "Kim Sang-In"
+            }
+          },
+          "1536826998845": {
+            "type": "text",
+            "settings": {
+              "title": "Talk about your brand",
+              "subtitle": "Name"
+            }
+          }
+        },
+        "block_order": [
+          "1534289673716",
+          "1536826998845"
+        ],
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 8,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1535180260235": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1535180260235"
+        ],
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "page-artist-template": {
+        "type": "page-artist-template",
+        "blocks": {
+          "1536044388983": {
+            "type": "image_picker",
+            "settings": {
+              "image_left": "shopify:\/\/shop_images\/Mari-Ruth-Oda-2_b986fe99-42eb-49c0-bb51-9f1ba91e2baa.jpg",
+              "image_right": "shopify:\/\/shop_images\/Mari-Ruth-Oda-3_72a33ff9-49d4-4ba0-8ed4-f5d2c218684d.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1536044388983"
+        ],
+        "settings": {
+          "artist_collection": "mari-ruth-oda",
+          "artist_image": "shopify:\/\/shop_images\/Mari-Ruth-Oda_a15b1b2d-c9e3-497e-a838-594362a6244a.jpg",
+          "artist_image_caption": "Portrait of Romy Northover at her New York studio in 2016.",
+          "artist_header_image": "shopify:\/\/shop_images\/Mari-Ruth-Oda-1_cdb05b57-2490-4e32-83a6-8d94b52e4c57.jpg",
+          "artist_description": "<p>na<\/p>"
+        }
+      },
+      "custom-content": {
+        "type": "custom-content",
+        "blocks": {
+          "1537390584557": {
+            "type": "text",
+            "settings": {
+              "title": "Talk about your brand",
+              "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1537390584557"
+        ],
+        "settings": {
+          "title": "Custom content"
+        }
+      },
+      "about-template": {
+        "type": "about-template",
+        "settings": {
+          "header_image": "shopify:\/\/shop_images\/ABOUT-page-image2.jpg",
+          "contact_text": "",
+          "about_text_italic": "",
+          "about_text": "<p>THE&nbsp;GALLERY CURATES WORKS BY EMERGING INTERNATIONAL ARTISTS, IN A SETTING INFORMED BY KOREAN AESTHETICS.<\/p>\n<p><\/p>"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": false
+        }
+      },
+      "product-template-test": {
+        "type": "product-template-test",
+        "settings": {
+          "image_size": "medium",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": true
+        }
+      },
+      "related-products": {
+        "type": "related-products",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "Other fine products",
+          "related_grid_num": "4",
+          "related_grid_row": "1"
+        }
+      },
+      "contact-template": {
+        "type": "contact-template",
+        "settings": {
+          "header_image": "shopify:\/\/shop_images\/ABOUT-page-image-2.jpg",
+          "contact_text": "<p>3 Fountain Buildings<\/p>\n<p>Lansdown Road<\/p>\n<p>Bath, BA1 5DU<\/p>\n<p>United Kingdom<\/p>\n<p><\/p>",
+          "contact_text_2": "<p>+44(0)1225 443220<\/p>\n<p><a href=\"mailto:hello@francisgallery.co\" title=\"mailto:hello@francisgallery.co\">hello@francisgallery.co<\/a><\/p>",
+          "contact_text_3": "<p>Open Wednesday through Sunday, from 11am to 7pm.<\/p>",
+          "about_text_italic": ""
+        }
+      }
+    },
+    "content_for_index": [
+      "hero",
+      "featured-collections",
+      "feature-row",
+      "slideshow",
+      "1533867955296",
+      "1533874592620"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#69727b",
+      "color_sale_text": "#557B97",
+      "color_borders": "#e8e9eb",
+      "color_button": "#557B97",
+      "color_button_text": "#fff",
+      "color_small_button_text_border": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#fff",
+      "type_header_font": "work_sans_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "work_sans_n4",
+      "type_base_size": 16,
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_linklist_two": ""
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "type_bold_product_titles": true,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "autoplay": true,
+            "autoplay_speed": 6,
+            "slideshow_height": "medium",
+            "text_size": "medium"
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_linklist": "main-menu",
+            "footer_linklist_two": "footer",
+            "footer_newsletter_enable": true,
+            "show_payment_icons": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "image_size": "medium",
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "enable_zoom": true,
+            "show_share_buttons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

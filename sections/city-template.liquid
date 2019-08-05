@@ -1,0 +1,181 @@
+<div class="contact-page city-guide">
+  <style>
+  #map {
+    height: 500px;
+    width: 100%;
+  }
+  
+  </style>
+  <div id="map"></div>
+  <div>
+    <span class="city-guide__title">{{section.settings.title}}</span>
+    <span class="city-guide__guide-title">{{section.settings.guide_name}}</span>
+  </div>
+  <hr>
+  <ul class="ul-wow">
+    {% for block in section.blocks %}
+      {% if block.type == 'location' %}
+        {% if block.settings.content == '' %}
+        {% else %}
+          <li class="wow"><span class="circle-man" style="background-color: {{block.settings.color_circle}};"></span>{{block.settings.content}}</li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <script type="text/javascript">
+      window.onload = function(){
+        var anchors = document.querySelector('.wow').getElementsByTagName('a');
+        for (var i=0; i<anchors.length; i++){
+          anchors[i].setAttribute('target', '_blank');
+        }
+      }
+
+      function initMap() {
+          // Basic options for a simple Google Map
+          // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+          var myCenter= new google.maps.LatLng(51.385943,-2.360874);
+
+          var mapOptions = {
+              // How zoomed in you want the map to start at (always required)
+              zoom: 17,
+              scrollwheel:false,
+              panControl:true,
+              zoomControl:true,
+              mapTypeControl:false,
+              scaleControl:true,
+              streetViewControl:false,
+              overviewMapControl:false,
+              // The latitude and longitude to center the map (always required)
+              center: myCenter,
+              mapTypeId:google.maps.MapTypeId.ROADMAP,
+              // How you would like to style the map.
+              // This is where you would paste any style found on Snazzy Maps.
+              // styles: [{"saturation":-100}],
+              styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+          };
+
+          // Get the HTML DOM element that will contain your map
+          // We are using a div with id="map" seen below in the <body>
+          var mapElement = document.getElementById('map');
+
+          // Create the Google Map using our element and options defined above
+          var map = new google.maps.Map(mapElement, mapOptions);
+
+          var francisMarker = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+
+          var francis_icon = {
+            url: '{{section.settings.fg_marker_icon | img_url }}', // url
+            scaledSize: new google.maps.Size(40, 25), // scaled size
+          };
+
+          // Let's also add a marker while we're at it
+          var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(51.385943, -2.360874),
+              map: map,
+              icon: francis_icon,
+              title: 'Francis Gallery',
+          });
+
+          var markersLol = [];
+
+          {% for block in section.blocks %}
+            {% if block.type == 'location' %}
+            (function () {
+              var markerLatlng = new google.maps.LatLng('{{block.settings.first_lat}}', '{{block.settings.first_long}}');
+              var icon = {
+                url: '{{block.settings.marker_icon | img_url }}', // url
+                scaledSize: new google.maps.Size(16, 26), // scaled size
+              };
+            
+              var title = `{{block.settings.marker_content}}`;
+
+              var infowindow = new google.maps.InfoWindow();
+
+              var marker2 = new google.maps.Marker({
+                position: new google.maps.LatLng('{{block.settings.first_lat}}', '{{block.settings.first_long}}'),
+                icon: icon,
+                title: title,
+                map: map,
+              });
+
+              markersLol.push(marker2);
+
+              marker2.addListener('click', function() {
+                infowindow.setContent(title);
+                infowindow.open(map, marker2);
+              });
+            })();
+            {% endif %}
+          {% endfor %}
+      }
+  </script>
+ <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtm7k_LvbZWURzJ1leyy2Cf6csOfn9cgc&callback=initMap">
+ </script>
+</div>
+
+
+{% schema %}
+{
+  "name": {
+    "en": "City guide"
+  },
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "guide_name",
+      "label": "Guide name"
+    },
+    {
+      "type": "image_picker",
+      "label": "Francis Gallery marker icon",
+      "id": "fg_marker_icon"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "label": "Latitude",
+          "id": "first_lat",
+          "type": "text"
+        },
+        {
+          "label": "Longitude",
+          "id": "first_long",
+          "type": "text"
+        },
+        {
+          "label": "Marker icon",
+          "id": "marker_icon",
+          "type": "image_picker"
+        },
+        {
+          "label": "Marker content",
+          "id": "marker_content",
+          "type": "text"
+        },
+        {
+          "label": "Content",
+          "id": "content",
+          "type": "richtext"
+        },
+        {
+          "type": "color",
+          "id": "color_circle",
+          "label": "Color of circle",
+          "default": "#333333"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
